@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AskCampus answers campus questions using a context-aware knowledge base.">
+  <title>AskCampus | Campus Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">A</span> AskCampus</a>
+    <div class="status"><span class="status-dot"></span> Campus knowledge assistant</div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="side-intro">
+        <span class="eyebrow">YOUR CAMPUS, CONNECTED</span>
+        <h1>Answers that<br><span>know the context.</span></h1>
+        <p>Ask about academics, admissions, facilities, and student life. Responses are grounded in the available campus knowledge base.</p>
+      </div>
+      <div class="topic-title">SUGGESTED TOPICS</div>
+      <button class="suggestion" data-question="What academic programmes and departments are available?"><span>▤</span> Academics & programmes</button>
+      <button class="suggestion" data-question="What is the admission process and where can I find eligibility details?"><span>↗</span> Admissions</button>
+      <button class="suggestion" data-question="What campus facilities and student services are available?"><span>⌂</span> Campus facilities</button>
+      <button class="suggestion" data-question="Tell me about student clubs, events, and campus life."><span>✳</span> Student life</button>
+      <div class="sidebar-foot">Answers are based on indexed sources. Always confirm important deadlines and policies with the institute.</div>
+    </aside>
+
+    <section class="chat-panel">
+      <div class="chat-header">
+        <div class="assistant-avatar">A</div>
+        <div><strong>AskCampus Assistant</strong><small>Context-aware campus support</small></div>
+        <button id="clearChat" class="clear-button" title="Clear conversation">Clear chat</button>
+      </div>
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="welcome">
+          <div class="welcome-icon">✦</div>
+          <h2>Hi! What would you like to know?</h2>
+          <p>I can help you explore campus information. Ask a question or choose a suggested topic to get started.</p>
+          <div class="starter-prompts">
+            <button data-question="How can I find information about admissions?">How do admissions work? <span>→</span></button>
+            <button data-question="Where can I find details about academic programmes?">Explore academic programmes <span>→</span></button>
+          </div>
+        </div>
+      </div>
+      <form id="chatForm" class="composer">
+        <textarea id="question" rows="1" maxlength="1500" placeholder="Ask anything about your campus…" required></textarea>
+        <button type="submit" id="sendButton" aria-label="Send message">↑</button>
+        <div class="composer-hint">AskCampus can make mistakes. Verify important information with official institute sources.</div>
+      </form>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
